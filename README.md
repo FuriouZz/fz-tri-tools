@@ -1,17 +1,16 @@
-# fz-tri-tools
+# trois-d-tools
 
 A bunch of tools for working in 3D on the web.
 
 You will find:
 - `packages/transformer` which optimize glb files and convert .exr, .hdr files into gainmap.
-   - use [@monogrid/gainmap-js](https://gainmap-creator.monogrid.com/)
 - `packages/viewer` to display glb files and environment map
 
-This repository depends on:
-  - [three.js](https://threejs.org/)
-  - [@monogrid/gainmap-js](https://gainmap-creator.monogrid.com/)
-  - [gltf-transform](https://gltf-transform.dev/)
-  - [toktx](https://github.khronos.org/KTX-Software/ktxtools/toktx.html)
+These packages depends on:
+  - [three.js](https://threejs.org/) (viewer)
+  - [@monogrid/gainmap-js](https://gainmap-creator.monogrid.com/) (viewer)
+  - [gltf-transform](https://gltf-transform.dev/) (transformer)
+  - [toktx](https://github.khronos.org/KTX-Software/ktxtools/toktx.html) (transformer)
 
 To use this project, you need `pnpm`, `node` and `biome` (please refers to `mise.toml`)
 
