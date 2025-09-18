@@ -1,0 +1,19 @@
+{
+  "name": "tri-transformer",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "bin": "./bin/cli.ts",
+  "dependencies": {
+    "@gltf-transform/cli": "^4.2.1",
+    "@gltf-transform/core": "^4.2.1",
+    "@gltf-transform/extensions": "^4.2.1",
+    "@gltf-transform/functions": "^4.2.1",
+    "@types/draco3dgltf": "^1.4.3",
+    "@types/node": "^24.5.1",
+    "draco3dgltf": "^1.5.7",
+    "playwright": "^1.55.0",
+    "sharp": "^0.34.4",
+    "typescript": "~5.8.3"
+  }
+}

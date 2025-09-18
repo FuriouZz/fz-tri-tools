@@ -1,3 +1,6 @@
+packages:
+  - packages/transformer
+  - packages/viewer
 onlyBuiltDependencies:
   - esbuild
   - sharp

@@ -1,31 +1,10 @@
 {
-  "name": "blend2three",
+  "name": "tri-tools",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "optimize": "NODE_NO_WARNINGS=1 node scripts/optimize.ts"
-  },
-  "devDependencies": {
-    "@gltf-transform/cli": "^4.2.1",
-    "@gltf-transform/core": "^4.2.1",
-    "@gltf-transform/extensions": "^4.2.1",
-    "@gltf-transform/functions": "^4.2.1",
-    "@types/draco3dgltf": "^1.4.3",
-    "@types/node": "^24.5.1",
-    "@types/three": "^0.180.0",
-    "draco3dgltf": "^1.5.7",
-    "playwright": "^1.55.0",
-    "sharp": "^0.34.4",
-    "typescript": "~5.8.3",
-    "vite": "^7.1.2"
-  },
-  "dependencies": {
-    "@furiouzz/reactive": "2.0.0-beta.2",
-    "@monogrid/gainmap-js": "^3.1.0",
-    "three": "^0.180.0"
+    "transform": "node packages/transformer/bin/cli.ts",
+    "viewer": "cd packages/viewer && npm run dev"
   }
 }

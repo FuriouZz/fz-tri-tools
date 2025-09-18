@@ -1,11 +1,11 @@
 import { chromium, type Page } from "playwright";
 
-import { type Asset, processAsset } from "./assets.ts";
+import type { Asset } from "./assets.ts";
 
-async function convert(page: Page, input: string, output: string) {
+async function convert(asset: Asset, page: Page) {
 	await page.reload();
 
-	await page.setInputFiles("input", input);
+	await page.setInputFiles("input", asset.input);
 
 	await page.waitForFunction(() => () => {
 		const buttons = Array.from(document.querySelectorAll("button"));
@@ -23,7 +23,7 @@ async function convert(page: Page, input: string, output: string) {
 		page.getByRole("button", { name: "JPEG" }).click(),
 	]);
 
-	await download.saveAs(output);
+	await download.saveAs(asset.output);
 }
 
 export async function generateGainmap(assets: Asset[]) {
@@ -37,9 +37,7 @@ export async function generateGainmap(assets: Asset[]) {
 	await page.goto("https://gainmap-creator.monogrid.com/");
 
 	for (const asset of assets) {
-		await processAsset(asset, async ([input, output]) => {
-			await convert(page, input, output);
-		});
+		await asset.wrap(() => convert(asset, page));
 	}
 
 	await browser.close();

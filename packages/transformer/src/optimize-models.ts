@@ -5,7 +5,7 @@ import { draco } from "@gltf-transform/functions";
 import draco3d from "draco3dgltf";
 import sharp from "sharp";
 
-import { type Asset, processAsset } from "./assets.ts";
+import type { Asset } from "./assets.ts";
 import { ktx2Transform } from "./ktx2-transform.ts";
 
 export async function optimizeModels(assets: Asset[]) {
@@ -17,8 +17,8 @@ export async function optimizeModels(assets: Asset[]) {
 		});
 
 	for (const asset of assets) {
-		await processAsset(asset, async ([input, output]) => {
-			const doc = await io.read(input);
+		await asset.wrap(async () => {
+			const doc = await io.read(asset.input);
 
 			await doc.transform(
 				draco(),
@@ -28,7 +28,7 @@ export async function optimizeModels(assets: Asset[]) {
 				}),
 			);
 
-			await io.write(output, doc);
+			await io.write(asset.output, doc);
 		});
 	}
 }
